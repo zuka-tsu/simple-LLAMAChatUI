@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         chatHistory.forEach(item => {
             const message = document.createElement('div');
             message.classList.add('mb-2', item.from === 'user' ? 'text-right' : 'text-left');
-            message.innerHTML = `<div class="inline-block ${item.from === 'user' ? 'bg-blue-500 text-white rounded-br-none' : 'bg-gray-300 dark:bg-gray-600 text-black dark:text-white rounded-bl-none'} p-2 rounded-lg" style="max-width:80%">${item.message}</div>`;
+            message.innerHTML = `<div class="inline-block ${item.from === 'user' ? 'bg-blue-500 text-white rounded-br-none' : 'bg-gray-300 dark:bg-gray-600 text-black dark:text-white rounded-bl-none'} p-2 rounded-lg whitespace-pre-wrap" style="max-width:80%">${item.message}</div>`;
             chatDisplay.appendChild(message);
 	    chatDisplay.scrollTo({ top: chatDisplay.scrollHeight, behavior: 'smooth' });
         });
@@ -74,7 +74,7 @@ document.getElementById('chat-form').addEventListener('submit', async function(e
     const chatDisplay = document.getElementById('chat-display');
     const userMessage = document.createElement('div');
     userMessage.classList.add('mb-2', 'text-right');
-    userMessage.innerHTML = `<div class="inline-block bg-blue-500 text-white p-2 rounded-lg rounded-br-none" style="max-width:80%">${input}</div>`;
+    userMessage.innerHTML = `<div class="inline-block bg-blue-500 text-white p-2 rounded-lg rounded-br-none whitespace-pre-wrap" style="max-width:80%">${input}</div>`;
     chatDisplay.appendChild(userMessage);
     chatDisplay.scrollTo({ top: chatDisplay.scrollHeight, behavior: 'smooth' });
 
@@ -141,7 +141,7 @@ document.getElementById('chat-form').addEventListener('submit', async function(e
                                     chatDisplay.appendChild(botMessage);
                                 }
 
-                                chatDisplay.lastElementChild.innerHTML = `<div class="inline-block bg-gray-300 dark:bg-gray-600 text-black dark:text-white p-2 rounded-lg rounded-bl-none" style="max-width:80%">${content}</div>`;
+                                chatDisplay.lastElementChild.innerHTML = `<div class="inline-block bg-gray-300 dark:bg-gray-600 text-black dark:text-white p-2 rounded-lg rounded-bl-none whitespace-pre-wrap" style="max-width:80%">${content}</div>`;
                            	chatDisplay.scrollTo({ top: chatDisplay.scrollHeight, behavior: 'smooth' }); 
 			    }
                         } catch (e) {
