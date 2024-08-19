@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('chat-form').addEventListener('submit', async function (event) {
         event.preventDefault();
         const chatInput = document.getElementById('chat-input');
+        const chatBtn = document.getElementById('chat-btn');
         const chatBtnTxt = document.getElementById('chat-btn-text');
         const chatLoading = document.getElementById('chat-loading');
         const input = chatInput.value.trim();
@@ -72,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Disable the textarea
         chatInput.disabled = true;
+        chatBtn.disabled = true;
         chatInput.placeholder = "Memproses...";
         chatBtnTxt.classList.add('hidden');
         // Show loading message
@@ -153,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         } else if (jsonString == '[DONE]') {
                             // Disable the textarea
                             chatInput.disabled = false;
+                            chatBtn.disabled = false;
                             chatInput.placeholder = "Tanya apapun...";
                             chatInput.focus();
                             // Show btn text
